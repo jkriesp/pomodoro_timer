@@ -12,7 +12,25 @@ if (now + countDownLength >= 60) {
     countDownTo = now + countDownLength;
 }
 
+//timeElement.innerText = countDownTo;
+//timeContainer.appendChild(timeElement);
 
-timeElement.innerText = countDownTo;
+let x = setInterval(function () {
+    // Get minutes
+    let now = new Date().getMinutes();
+    let nowSeconds = new Date().getSeconds();
 
-timeContainer.appendChild(timeElement);
+    // Distance between now and countDownTo
+    let minutes = 0;
+    if (countDownTo - now <= 0) {
+        minutes = countDownTo - now + 59;
+    } else {
+        minutes = countDownTo - now;
+    }
+    
+    let seconds = 60 - nowSeconds;
+   
+
+    timeElement.innerText = minutes + "m " + seconds + "s";
+    timeContainer.appendChild(timeElement);
+}, 1000)
