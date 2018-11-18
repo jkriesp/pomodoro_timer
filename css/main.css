@@ -1,0 +1,23 @@
+html {
+  font-family: 'Work Sans', sans-serif;
+}
+
+body{
+  background-color: #FAD4C0;
+}
+
+.container {
+  padding-top: 1px;
+  width: 400px;
+  height: 500px;
+  background-color: #64B6AC;
+  margin: auto;
+  text-align: center;
+}
+
+.timeContainer {
+  display: inline-block;
+  background-color: #C0FDFB;
+  width: 70%;
+  
+}
