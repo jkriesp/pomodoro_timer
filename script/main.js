@@ -1,36 +1,30 @@
 let timeContainer = document.querySelector('.timeContainer');
 let timeElement = document.createElement('p');
 timeElement.setAttribute('id', 'time');
+let myCountdown = null;
 
-let now = new Date().getMinutes();
-let countDownLength = 25;
-let countDownTo = "";
+function startTimer(duration, display) {
+    let timer = duration, minutes, seconds;
+    myCountdown = setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
 
-if (now + countDownLength >= 60) {
-    countDownTo = now + countDownLength - 60;
-} else {
-    countDownTo = now + countDownLength;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
 }
 
-//timeElement.innerText = countDownTo;
-//timeContainer.appendChild(timeElement);
+document.getElementById('btn_start').addEventListener('click', function () {
+    let duration = 60 * 25;
+    startTimer(duration, timeContainer);
+});
 
-let x = setInterval(function () {
-    // Get minutes
-    let now = new Date().getMinutes();
-    let nowSeconds = new Date().getSeconds();
-
-    // Distance between now and countDownTo
-    let minutes = 0;
-    if (countDownTo - now <= 0) {
-        minutes = countDownTo - now + 59;
-    } else {
-        minutes = countDownTo - now;
-    }
-    
-    let seconds = 60 - nowSeconds;
-   
-
-    timeElement.innerText = minutes + "m " + seconds + "s";
-    timeContainer.appendChild(timeElement);
-}, 1000)
+document.getElementById('btn_stop').addEventListener('click', function () {
+    clearInterval(myCountdown);
+});
