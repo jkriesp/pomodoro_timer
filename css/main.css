@@ -21,3 +21,11 @@ body{
   width: 70%;
   
 }
+
+.btnContainer {
+  width: 100%;
+}
+
+.button {
+  width: 25%;
+}

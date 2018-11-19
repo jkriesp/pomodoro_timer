@@ -27,4 +27,5 @@ document.getElementById('btn_start').addEventListener('click', function () {
 
 document.getElementById('btn_stop').addEventListener('click', function () {
     clearInterval(myCountdown);
+    timeContainer.textContent = "25:00";
 });
