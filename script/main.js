@@ -23,7 +23,7 @@ let x = setInterval(function () {
     // Distance between now and countDownTo
     let minutes = 0;
     if (countDownTo - now <= 0) {
-        minutes = countDownTo - now + 59;
+        minutes = countDownTo - now + 60;
     } else {
         minutes = countDownTo - now;
     }
